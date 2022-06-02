@@ -8,7 +8,7 @@
 $前复权价格=(复权前价格-每股分红现金+配股比例*配股价格)/(1+配股比例+送股比例)$  
 
 ## 分红配股数据来源
-分红派息记录从凤凰网获取，例：https://app.finance.ifeng.com/data/stock/tab_fhpxjl.php?symbol=002555  
+分红送转股记录从凤凰网获取，例：https://app.finance.ifeng.com/data/stock/tab_fhpxjl.php?symbol=002555  
 凤凰网数据请求频繁会限制，没有测试具体频率，使用过程直接用了1秒的间隔
 
 
