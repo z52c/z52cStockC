@@ -1,4 +1,4 @@
-##股票列表
+## 股票列表
 股票列表从证监会的行业分类中获取：http://www.csrc.gov.cn/csrc/c100103/common_list.shtml  
 简单整理就能得到一个csv表格，只要股票代码一个字段就可以了，保存到stockList.csv中
 
