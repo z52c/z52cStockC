@@ -1,5 +1,6 @@
 #include "../include/tdx.h"
 #include "../include/db.h"
+#include "../include/stockdata.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -15,21 +16,11 @@ int main()
     sqliteDB = new fhpgDB();
     logFile.open("error.log",ios::out | ios::trunc);
     outFile.open("rst.txt",ios::out | ios::trunc);
-    /*
-    vector<struct stockListNode> stockList;
-    stockList=z_get_stock_list();
-    vector<struct fhpg> b;
-    b=sqliteDB->getFHPGData("002555");
-    for(int i=0;i<b.size();i++)
+    stockdata a = stockdata(DAY,SZ,"002555",FOREADJUST);
+    a.calcMACD();
+    for(int i=0;i<a.dataNum;i++)
     {
-        cout<<b[i].date<<"  "<<b[i].fenhong<<"  "<<b[i].songzhuan<<"  "<<b[i].peigu<<"  "<<b[i].peigujia<<endl;
-    }
-    */
-    unsigned int dataNum;
-    tdxRawData* pTmp = tdx_get_week_data(SZ,"002555",&dataNum,FOREADJUST);
-    for(int i=0;i<dataNum;i++)
-    {
-        cout<<pTmp[i].date<<"  "<<pTmp[i].close<<"  ";
+        cout<<a.rawData[i].date<<"-dea:"<<a.pMACD[i].dea<<"-dif:"<<a.pMACD[i].dif<<"-macd:"<<a.pMACD[i].macd<<"  ;";
     }
     outFile.close();
     logFile.close();
