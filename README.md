@@ -13,7 +13,7 @@ $前复权价格=(复权前价格-每股分红现金+配股比例*配股价格)/
 
 
 配股数据从东方财富获取：`https://datacenter-web.eastmoney.com/api/data/v1/get?sortColumns=EQUITY_RECORD_DATE&sortTypes=-1&pageSize=500&pageNumber=1&reportName=RPT_IPO_ALLOTMENT&columns=ALL&quoteColumns=f2~01~SECURITY_CODE~NEW_PRICE&source=WEB&client=WEB`
-每一页最多只能获取500条数据
+每一页最多只能获取500条数据,一共就一千多条，直接抓取好像有限制，这里就直接复制下来扔进pd.txt文件了
 
 ## 分红配股数据获取以及存储
 代码在fhpg目录中的fhpg.py中实现
