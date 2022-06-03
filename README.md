@@ -130,3 +130,4 @@ fhpg.db中记录了20220530之前的分红配股数据
 * tdx.h tdx.cpp 通达信相关的数据处理,暂时只有前复权跟不复权的，因为我用不到后复权，里面的函数只为stockdata服务
 * db.h db.cpp 分红送股配股数据库处理，只负责读取，更新在fhpg中的python文件
 * stockdata.h stockdata.cpp 数据的处理在stockdata类中完成，暂时只有k线数据以及macd和均线
+* strategymacd1.h strategymacd1.cpp 不同级别macd结合的一种选股策略
