@@ -16,11 +16,18 @@ int main()
     sqliteDB = new fhpgDB();
     logFile.open("error.log",ios::out | ios::trunc);
     outFile.open("rst.txt",ios::out | ios::trunc);
-    stockdata a = stockdata(DAY,SZ,"002555",FOREADJUST);
-    a.calcMACD();
-    for(int i=0;i<a.dataNum;i++)
+    vector<struct stockListNode> stockList = z_get_stock_list();
+    strategyMACD1* b;
+    for(int i=0;i<stockList.size();i++)
     {
-        cout<<a.rawData[i].date<<"-dea:"<<a.pMACD[i].dea<<"-dif:"<<a.pMACD[i].dif<<"-macd:"<<a.pMACD[i].macd<<"  ;";
+        b = new strategyMACD1(stockList[i].stockCode,stockList[i].market,WEEK,MIN60);
+        logFile<<stockList[i].stockCode<<endl;
+        if(b->ifOK())
+        {
+            cout<<stockList[i].stockCode<<endl;
+            outFile<<stockList[i].stockCode<<endl;
+        }
+        delete b;
     }
     outFile.close();
     logFile.close();
