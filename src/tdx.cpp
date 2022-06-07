@@ -156,12 +156,16 @@ tdxRawData * tdx_get_min1_data(enum MARKET _market,const char* stockCode,unsigne
             {
                 if(pRtn[i].date<=fhpgData[j].date)
                 {
-                    pRtn[i].open = ((float)((int)(((pRtn[i].open-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].close = ((float)((int)(((pRtn[i].close-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].high = ((float)((int)(((pRtn[i].high-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].low = ((float)((int)(((pRtn[i].low-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
+                    pRtn[i].open = (pRtn[i].open-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].close = (pRtn[i].close-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].high = (pRtn[i].high-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].low = (pRtn[i].low-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
                 }
             }
+            pRtn[i].open = ((float)((int)((pRtn[i].open+0.005)*100)))/100;
+            pRtn[i].close = ((float)((int)((pRtn[i].close+0.005)*100)))/100;
+            pRtn[i].high = ((float)((int)((pRtn[i].high+0.005)*100)))/100;
+            pRtn[i].low = ((float)((int)((pRtn[i].low+0.005)*100)))/100;
         }
     }
     return (tdxRawData *)data;
@@ -186,12 +190,16 @@ tdxRawData * tdx_get_min5_data(enum MARKET _market,const char* stockCode,unsigne
             {
                 if(pRtn[i].date<=fhpgData[j].date)
                 {
-                    pRtn[i].open = ((float)((int)(((pRtn[i].open-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].close = ((float)((int)(((pRtn[i].close-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].high = ((float)((int)(((pRtn[i].high-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].low = ((float)((int)(((pRtn[i].low-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
+                    pRtn[i].open = (pRtn[i].open-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].close = (pRtn[i].close-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].high = (pRtn[i].high-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].low = (pRtn[i].low-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
                 }
             }
+            pRtn[i].open = ((float)((int)((pRtn[i].open+0.005)*100)))/100;
+            pRtn[i].close = ((float)((int)((pRtn[i].close+0.005)*100)))/100;
+            pRtn[i].high = ((float)((int)((pRtn[i].high+0.005)*100)))/100;
+            pRtn[i].low = ((float)((int)((pRtn[i].low+0.005)*100)))/100;
         }
     }
     return (tdxRawData *)data;
@@ -216,12 +224,16 @@ tdxRawData * tdx_get_day_data(enum MARKET _market,const char* stockCode,unsigned
             {
                 if(pRtn[i].date<=fhpgData[j].date)
                 {
-                    pRtn[i].open = ((float)((int)(((pRtn[i].open-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].close = ((float)((int)(((pRtn[i].close-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].high = ((float)((int)(((pRtn[i].high-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
-                    pRtn[i].low = ((float)((int)(((pRtn[i].low-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan)+0.005)*100)))/100;
+                    pRtn[i].open = (pRtn[i].open-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].close = (pRtn[i].close-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].high = (pRtn[i].high-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
+                    pRtn[i].low = (pRtn[i].low-fhpgData[j].fenhong+fhpgData[j].peigu*fhpgData[j].peigujia)/(1+fhpgData[j].peigu+fhpgData[j].songzhuan);
                 }
             }
+            pRtn[i].open = ((float)((int)((pRtn[i].open+0.005)*100)))/100;
+            pRtn[i].close = ((float)((int)((pRtn[i].close+0.005)*100)))/100;
+            pRtn[i].high = ((float)((int)((pRtn[i].high+0.005)*100)))/100;
+            pRtn[i].low = ((float)((int)((pRtn[i].low+0.005)*100)))/100;
         }
     }
     return (tdxRawData *)data;
